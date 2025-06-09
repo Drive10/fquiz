@@ -1,70 +1,122 @@
-# Getting Started with Create React App
+# FQuiz - Interactive Quiz Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img src="public/logo192.png" alt="FQuiz Logo" width="200" />
+</p>
 
-## Available Scripts
+FQuiz is an interactive quiz application built with React that allows users to test their knowledge across various topics. Features include bookmarking questions, dark mode support, and a leaderboard system.
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- ✨ Multiple quiz categories
+- 🌗 Dark/Light mode toggle
+- 📚 Bookmarking system
+- 🏆 Leaderboard
+- 📱 Responsive design
+- ⚡ Performance optimized
+- 🔐 Error boundary protection
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React 18
+- React Router v6
+- Emotion (Styled Components)
+- Node.js
+- NPM
 
-### `npm test`
+## 📋 Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Before you begin, ensure you have the following installed:
+- Node.js (version 14 or higher)
+- npm (usually comes with Node.js)
 
-### `npm run build`
+## 🚀 Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the repository**
+bash git clone [https://github.com/Drive10/fquiz.git](https://github.com/Drive10/fquiz.git) cd fquiz
+2. **Install dependencies**
+3. **Start development server**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The application will open in your default browser at `http://localhost:3000`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🏗️ Building for Production
 
-### `npm run eject`
+1. **Create production build**
+2. **Test production build locally**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🐳 Docker Deployment
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Build Docker image**
+2. **Run Docker container**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🎯 Available Scripts
 
-## Learn More
+- `npm start` - Runs the app in development mode
+- `npm test` - Launches the test runner
+- `npm run build` - Builds the app for production
+- `npm run eject` - Ejects from create-react-app
+- `npm run analyze` - Analyzes bundle size
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🔧 Environment Variables
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Create a `.env` file in the root directory:
 
-### Code Splitting
+env REACT_APP_ENV=development GENERATE_SOURCEMAP=true
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+For production, create `.env.production`:
 
-### Analyzing the Bundle Size
+env REACT_APP_ENV=production GENERATE_SOURCEMAP=false
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📱 Browser Support
 
-### Making a Progressive Web App
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🤝 Contributing
 
-### Advanced Configuration
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📝 License
 
-### Deployment
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 👥 Author
 
-### `npm run build` fails to minify
+- Drive10 - [GitHub Profile](https://github.com/Drive10)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🙏 Acknowledgments
+
+- Create React App team for the initial project setup
+- React team for the amazing framework
+- All contributors who have helped this project
+
+## 🐛 Known Issues
+
+- None reported yet. Please create an issue if you find one!
+
+## 🔮 Future Improvements
+
+- [ ] Add more quiz categories
+- [ ] Implement user authentication
+- [ ] Add multiplayer mode
+- [ ] Create mobile app version
+- [ ] Add offline support (PWA)
+- [ ] Implement social sharing
+
+## 💬 Support
+
+For support, please open an issue in the GitHub repository or contact the maintainers.
+
+---
+
+<p align="center">
+  Made with ❤️ by Drive10
+</p>
+
