@@ -1,47 +1,65 @@
-import { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
 
 const QuizContext = createContext();
 
 const initialState = {
-    darkMode: false,
-    scores: [],
+    score: 0,
+    currentQuestion: 0,
     bookmarks: [],
-    selectedCategory: 'all',
-    difficulty: 'medium',
+    darkMode: false,
+    category: '',
+    difficulty: '',
+    totalQuestions: 0,  // Add this line
 };
 
-function quizReducer(state, action) {
+const quizReducer = (state, action) => {
     switch (action.type) {
-        case 'TOGGLE_DARK_MODE':
-            return { ...state, darkMode: !state.darkMode };
-        case 'ADD_SCORE':
-            return { ...state, scores: [...state.scores, action.payload] };
+        case 'SET_SCORE':
+            return { ...state, score: action.payload };
+        case 'SET_CURRENT_QUESTION':
+            return { ...state, currentQuestion: action.payload };
         case 'TOGGLE_BOOKMARK':
+            const questionId = action.payload;
+            const bookmarks = state.bookmarks.includes(questionId)
+                ? state.bookmarks.filter(id => id !== questionId)
+                : [...state.bookmarks, questionId];
+            return { ...state, bookmarks };
+        case 'TOGGLE_THEME':
+            return { ...state, darkMode: !state.darkMode };
+        case 'SET_QUIZ_SETTINGS':
             return {
                 ...state,
-                bookmarks: state.bookmarks.includes(action.payload)
-                    ? state.bookmarks.filter(id => id !== action.payload)
-                    : [...state.bookmarks, action.payload]
+                category: action.payload.category,
+                difficulty: action.payload.difficulty,
+                totalQuestions: action.payload.totalQuestions // Add this line
             };
-        case 'SET_CATEGORY':
-            return { ...state, selectedCategory: action.payload };
-        case 'SET_DIFFICULTY':
-            return { ...state, difficulty: action.payload };
+        case 'RESET_QUIZ':
+            return {
+                ...state,
+                score: 0,
+                currentQuestion: 0,
+                category: '',
+                difficulty: '',
+                totalQuestions: 0  // Add this line
+            };
         default:
             return state;
     }
-}
+};
 
-export function QuizProvider({ children }) {
+export const QuizProvider = ({ children }) => {
     const [state, dispatch] = useReducer(quizReducer, initialState);
-
     return (
         <QuizContext.Provider value={{ state, dispatch }}>
             {children}
         </QuizContext.Provider>
     );
-}
+};
 
-export function useQuiz() {
-    return useContext(QuizContext);
-}
+export const useQuiz = () => {
+    const context = useContext(QuizContext);
+    if (!context) {
+        throw new Error('useQuiz must be used within a QuizProvider');
+    }
+    return context;
+};

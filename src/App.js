@@ -1,10 +1,8 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
-import { QuizProvider } from './context/QuizContext';
-import { useQuiz } from './context/QuizContext';
+import { QuizProvider, useQuiz } from './context/QuizContext';
 import { lightTheme, darkTheme } from './styles/theme';
-import ErrorBoundary from './components/ErrorBoundary';
 import LoadingSpinner from './components/LoadingSpinner';
 
 // Lazy load components
@@ -13,38 +11,33 @@ const Quiz = lazy(() => import('./components/Quiz'));
 const Categories = lazy(() => import('./components/Categories'));
 const Leaderboard = lazy(() => import('./components/Leaderboard'));
 const Bookmarks = lazy(() => import('./components/Bookmarks'));
+const Results = lazy(() => import('./components/Results')); // Add this line
 
-function AppContent() {
+const AppRoutes = () => {
     const { state } = useQuiz();
-    const theme = state.darkMode ? darkTheme : lightTheme;
 
     return (
-        <ThemeProvider theme={theme}>
-            <div className="App" style={{ backgroundColor: theme.background }}>
-                <ErrorBoundary>
-                    <Suspense fallback={<LoadingSpinner />}>
-                        <Router>
-                            <Routes>
-                                <Route path="/" element={<Home />} />
-                                <Route path="/quiz" element={<Quiz />} />
-                                <Route path="/categories" element={<Categories />} />
-                                <Route path="/leaderboard" element={<Leaderboard />} />
-                                <Route path="/bookmarks" element={<Bookmarks />} />
-                            </Routes>
-                        </Router>
-                    </Suspense>
-                </ErrorBoundary>
-            </div>
+        <ThemeProvider theme={state.darkMode ? darkTheme : lightTheme}>
+            <Suspense fallback={<LoadingSpinner />}>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/quiz" element={<Quiz />} />
+                    <Route path="/categories" element={<Categories />} />
+                    <Route path="/leaderboard" element={<Leaderboard />} />
+                    <Route path="/bookmarks" element={<Bookmarks />} />
+                    <Route path="/results" element={<Results />} /> {/* Add this line */}
+                </Routes>
+            </Suspense>
         </ThemeProvider>
     );
-}
+};
 
-function App() {
+export default function App() {
     return (
         <QuizProvider>
-            <AppContent />
+            <BrowserRouter>
+                <AppRoutes />
+            </BrowserRouter>
         </QuizProvider>
     );
 }
-
-export default App;
