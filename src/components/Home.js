@@ -55,9 +55,6 @@ function Home() {
                 <Button onClick={() => navigate('/categories')}>
                     Start Quiz
                 </Button>
-                <Button onClick={() => navigate('/leaderboard')}>
-                    Leaderboard
-                </Button>
                 <Button onClick={() => navigate('/bookmarks')}>
                     Bookmarked Questions ({state.bookmarks.length})
                 </Button>

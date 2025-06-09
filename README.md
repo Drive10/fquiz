@@ -11,7 +11,6 @@ FQuiz is an interactive quiz application built with React that allows users to t
 - ✨ Multiple quiz categories
 - 🌗 Dark/Light mode toggle
 - 📚 Bookmarking system
-- 🏆 Leaderboard
 - 📱 Responsive design
 - ⚡ Performance optimized
 - 🔐 Error boundary protection

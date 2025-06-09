@@ -9,7 +9,6 @@ import LoadingSpinner from './components/LoadingSpinner';
 const Home = lazy(() => import('./components/Home'));
 const Quiz = lazy(() => import('./components/Quiz'));
 const Categories = lazy(() => import('./components/Categories'));
-const Leaderboard = lazy(() => import('./components/Leaderboard'));
 const Bookmarks = lazy(() => import('./components/Bookmarks'));
 const Results = lazy(() => import('./components/Results')); // Add this line
 
@@ -23,7 +22,6 @@ const AppRoutes = () => {
                     <Route path="/" element={<Home />} />
                     <Route path="/quiz" element={<Quiz />} />
                     <Route path="/categories" element={<Categories />} />
-                    <Route path="/leaderboard" element={<Leaderboard />} />
                     <Route path="/bookmarks" element={<Bookmarks />} />
                     <Route path="/results" element={<Results />} /> {/* Add this line */}
                 </Routes>
