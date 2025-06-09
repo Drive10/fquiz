@@ -5,7 +5,7 @@ services:
   dev:
     build:
       context: .
-      target: build
+      target: builder
     container_name: quiz-app-dev
     volumes:
       - ./:/app
